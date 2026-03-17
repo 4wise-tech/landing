@@ -93,6 +93,22 @@ html {
   /* current "white" PNG is actually dark; make it readable on dark UI */
   filter: brightness(0) invert(1);
   opacity: 0.92;
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* mobile navbar: avoid cramped brand+links */
+@media (max-width: 720px) {
+  .navLinks {
+    display: none;
+  }
+  .navPill {
+    justify-content: center;
+  }
+  .logoMark {
+    height: 24px;
+  }
 }
 
 /* hero */
