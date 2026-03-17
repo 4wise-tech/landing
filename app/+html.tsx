@@ -6,11 +6,16 @@ import { ScrollViewStyleReset } from 'expo-router/html';
 // do not have access to the DOM or browser APIs.
 export default function Root({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="tr">
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>4wise • AI Agent & Kurumsal Yazılım</title>
+        <meta
+          name="description"
+          content="4wise, AI agent’lar, ölçeklenebilir yazılımlar ve kurumsal yapay zeka çözümleri geliştirir. Bakım, destek ve sürekli geliştirme ile production odaklı teslim."
+        />
 
         {/* 
           Disable body scrolling on web. This makes ScrollView components work closer to how they do on native. 
@@ -29,10 +34,10 @@ export default function Root({ children }: { children: React.ReactNode }) {
 
 const responsiveBackground = `
 body {
-  background-color: #fff;
+  background-color: #F8FAFC;
 }
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #000;
+    background-color: #0B0F1A;
   }
 }`;

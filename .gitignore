@@ -9,6 +9,10 @@ dist/
 web-build/
 expo-env.d.ts
 
+# Next
+next/.next/
+next/out/
+
 # Native
 .kotlin/
 *.orig.*
@@ -29,6 +33,9 @@ yarn-error.*
 # macOS
 .DS_Store
 *.pem
+
+# caches
+.npm-cache/
 
 # local env files
 .env*.local
