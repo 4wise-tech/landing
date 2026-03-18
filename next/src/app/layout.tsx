@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   description:
     "4wise builds AI agents, scalable software, and enterprise AI solutions. From discovery to production, end-to-end delivery with run & support.",
   metadataBase: new URL("https://4wise.tech"),
+  verification: {
+    google: "C9HXtT06RmUEJ62XRFYhoywErKc5nu8bQz2i6Y4w9Zk",
+  },
   alternates: {
     canonical: "/",
   },
