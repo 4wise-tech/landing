@@ -43,12 +43,12 @@ export default function PrivacyPage() {
           <h2 className="legalH2">Your rights</h2>
           <p className="muted">
             Depending on your location, you may have rights to access, correct, delete, or restrict processing of your
-            personal data. To exercise these rights, contact us at <a className="legalLink" href="mailto:hello@4wise.ai">hello@4wise.ai</a>.
+            personal data. To exercise these rights, contact us at <a className="legalLink" href="mailto:hello@4wise.tech">hello@4wise.tech</a>.
           </p>
 
           <h2 className="legalH2">Contact</h2>
           <p className="muted">
-            Email: <a className="legalLink" href="mailto:hello@4wise.ai">hello@4wise.ai</a>
+            Email: <a className="legalLink" href="mailto:hello@4wise.tech">hello@4wise.tech</a>
           </p>
         </div>
       </div>

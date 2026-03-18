@@ -30,7 +30,7 @@ export default function CookiesPage() {
 
           <h2 className="legalH2">Contact</h2>
           <p className="muted">
-            Email: <a className="legalLink" href="mailto:hello@4wise.ai">hello@4wise.ai</a>
+            Email: <a className="legalLink" href="mailto:hello@4wise.tech">hello@4wise.tech</a>
           </p>
         </div>
       </div>

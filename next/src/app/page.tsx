@@ -215,7 +215,7 @@ export default function Home() {
                   <p className="tag">{x.tag}</p>
                   <h3 className="h3">{x.t}</h3>
                   <p className="muted">{x.d}</p>
-                  <a className="cardCta" href={`mailto:hello@4wise.ai?subject=${encodeURIComponent(`Proje detayı: ${x.t}`)}`}>
+                  <a className="cardCta" href={`mailto:hello@4wise.tech?subject=${encodeURIComponent(`Proje detayı: ${x.t}`)}`}>
                     {x.cta}
                   </a>
                 </div>
@@ -237,10 +237,10 @@ export default function Home() {
             </p>
               </div>
               <div className="ctaActions">
-                <a className="btnSecondary" href="mailto:hello@4wise.ai?subject=%C4%B0leti%C5%9Fim">
+                <a className="btnSecondary" href="mailto:hello@4wise.tech?subject=%C4%B0leti%C5%9Fim">
                   Get in touch
                 </a>
-                <a className="btnPrimary" href="mailto:hello@4wise.ai?subject=Demo%20Talebi">
+                <a className="btnPrimary" href="mailto:hello@4wise.tech?subject=Demo%20Talebi">
                   Request a demo
                 </a>
               </div>
@@ -271,7 +271,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="footerTitle">CONTACT</p>
-                    <p className="muted">hello@4wise.ai</p>
+                    <p className="muted">hello@4wise.tech</p>
                     <p className="muted">Istanbul / Remote</p>
                   </div>
                   <div>

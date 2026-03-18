@@ -70,7 +70,7 @@ export function Hero() {
             </p>
 
             <div className="heroActions">
-              <a className="btnPrimary" href="mailto:hello@4wise.ai?subject=Demo%20Talebi">
+              <a className="btnPrimary" href="mailto:hello@4wise.tech?subject=Demo%20Talebi">
                 Request a demo
               </a>
               <a className="btnSecondary" href="#next">
