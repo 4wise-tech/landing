@@ -1,26 +1,16 @@
-"use client";
-
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { Hero, type Lang } from "@/components/hero/Hero";
+import Link from "next/link";
+import { Hero } from "@/components/hero/Hero";
+import { MobileMenu } from "@/components/nav/MobileMenu";
 
 export default function Home() {
-  const [lang, setLang] = useState<Lang>("en");
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const stored = window.localStorage.getItem("lang") as Lang | null;
-    if (stored === "en" || stored === "tr") {
-      setLang(stored);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    window.localStorage.setItem("lang", lang);
-  }, [lang]);
-
-  const isEn = lang === "en";
+  const menuItems = [
+    { href: "#services", label: "Services" },
+    { href: "#solutions", label: "Solutions" },
+    { href: "#process", label: "Process" },
+    { href: "#cases", label: "Cases" },
+    { href: "#cta", label: "Contact" },
+  ] as const;
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -37,82 +27,60 @@ export default function Home() {
             />
           </div>
           <nav className="navLinks">
-            <a href="#services" className="navLink">{isEn ? "Services" : "Hizmetler"}</a>
-            <a href="#solutions" className="navLink">{isEn ? "Solutions" : "Çözümler"}</a>
-            <a href="#process" className="navLink">{isEn ? "Process" : "Süreç"}</a>
-            <a href="#cases" className="navLink">{isEn ? "Cases" : "Projeler"}</a>
-            <a href="#cta" className="navLink">{isEn ? "Contact" : "İletişim"}</a>
+            <a href="#services" className="navLink">Services</a>
+            <a href="#solutions" className="navLink">Solutions</a>
+            <a href="#process" className="navLink">Process</a>
+            <a href="#cases" className="navLink">Cases</a>
+            <a href="#cta" className="navLink">Contact</a>
           </nav>
-          <div className="navLinks">
-            <button
-              type="button"
-              className="navLink"
-              style={{ opacity: isEn ? 1 : 0.6, textDecoration: isEn ? "underline" : "none" }}
-              onClick={() => setLang("en")}
-            >
-              EN
-            </button>
-            <span className="navLink" style={{ opacity: 0.45 }}>·</span>
-            <button
-              type="button"
-              className="navLink"
-              style={{ opacity: !isEn ? 1 : 0.6, textDecoration: !isEn ? "underline" : "none" }}
-              onClick={() => setLang("tr")}
-            >
-              TR
-            </button>
-          </div>
+          <MobileMenu items={menuItems} />
         </div>
       </header>
 
       <main>
-        <Hero lang={lang} />
+        <Hero />
         <section id="services" className="section">
           <div className="sectionInner">
-            <p className="eyebrow">{isEn ? "SERVICES" : "HİZMETLER"}</p>
+            <p className="eyebrow">SERVICES</p>
             <h2 className="h2">
-              {isEn
-                ? "From AI agents to scalable software"
-                : "AI agent’lardan ölçeklenebilir yazılımlara"}
+              From AI agents to scalable software
             </h2>
             <p className="lead">
-              {isEn
-                ? "We deliver end‑to‑end with technically strong teams, aligned with enterprise expectations."
-                : "Teknik derinliği yüksek ekiplerle, kurumsal beklentilere uygun şekilde uçtan uca teslim ederiz."}
+              We deliver end‑to‑end with technically strong teams, aligned with enterprise expectations.
             </p>
 
             <div className="grid3">
               <div className="card">
                 <div className="cardHead">
                   <span className="dotBlue" aria-hidden />
-                  <h3 className="h3">{isEn ? "AI Agents & Automation" : "AI Agent & Otomasyon"}</h3>
+                  <h3 className="h3">AI Agents &amp; Automation</h3>
                 </div>
                 <ul className="list">
-                  <li>{isEn ? "Custom AI agent development" : "Özel AI agent geliştirme"}</li>
-                  <li>{isEn ? "AI‑augmented business processes" : "AI destekli iş süreçleri"}</li>
-                  <li>{isEn ? "Chatbots and decision support systems" : "Chatbot ve karar destek sistemleri"}</li>
+                  <li>Custom AI agent development</li>
+                  <li>AI‑augmented business processes</li>
+                  <li>Chatbots and decision support systems</li>
                 </ul>
               </div>
               <div className="card">
                 <div className="cardHead">
                   <span className="dotGreen" aria-hidden />
-                  <h3 className="h3">{isEn ? "Software Engineering" : "Yazılım Geliştirme"}</h3>
+                  <h3 className="h3">Software Engineering</h3>
                 </div>
                 <ul className="list">
-                  <li>{isEn ? "Web and mobile applications" : "Web ve mobil uygulamalar"}</li>
-                  <li>{isEn ? "SaaS platforms" : "SaaS platformlar"}</li>
-                  <li>{isEn ? "APIs and system integrations" : "API ve sistem entegrasyonları"}</li>
+                  <li>Web and mobile applications</li>
+                  <li>SaaS platforms</li>
+                  <li>APIs and system integrations</li>
                 </ul>
               </div>
               <div className="card">
                 <div className="cardHead">
                   <span className="dotCyan" aria-hidden />
-                  <h3 className="h3">{isEn ? "Run & Support" : "Bakım & Destek"}</h3>
+                  <h3 className="h3">Run &amp; Support</h3>
                 </div>
                 <ul className="list">
-                  <li>{isEn ? "24/7 system monitoring" : "7/24 sistem izleme"}</li>
-                  <li>{isEn ? "DevOps and infrastructure management" : "DevOps ve altyapı yönetimi"}</li>
-                  <li>{isEn ? "Continuous improvement and updates" : "Sürekli iyileştirme ve güncellemeler"}</li>
+                  <li>24/7 system monitoring</li>
+                  <li>DevOps and infrastructure management</li>
+                  <li>Continuous improvement and updates</li>
                 </ul>
               </div>
             </div>
@@ -121,20 +89,20 @@ export default function Home() {
 
         <section id="solutions" className="section">
           <div className="sectionInner">
-            <p className="eyebrow">{isEn ? "SOLUTIONS" : "ÇÖZÜMLER"}</p>
+            <p className="eyebrow">SOLUTIONS</p>
             <h2 className="h2">
-              {isEn ? "Tailored, measurable outcomes" : "Kuruma özel, ölçülebilir sonuçlar"}
+              Tailored, measurable outcomes
             </h2>
             <p className="lead">
-              AI’ı yalnızca demo değil; güvenlik, izlenebilirlik ve performansla production’da çalıştırırız.
+              We bring AI to production with security, observability, and performance—beyond demos.
             </p>
 
             <div className="grid2">
               {[
-                { t: "AI workforce (AI çalışan sistemleri)", d: "Departman bazlı agent’lar ile görev otomasyonu ve hız." },
-                { t: "Kuruma özel AI çözümleri", d: "Veri, erişim ve süreçlerinize göre özelleştirilmiş agent’lar." },
-                { t: "Veri ve otomasyon sistemleri", d: "ETL, event-driven otomasyon, entegrasyon katmanı." },
-                { t: "Operasyonel verimlilik", d: "Maliyet, kalite ve süre metriklerine doğrudan etki." },
+                { t: "AI workforce", d: "Department-level agents that automate tasks and accelerate execution." },
+                { t: "Custom enterprise AI", d: "Agents tailored to your data, access model, and processes." },
+                { t: "Data & automation systems", d: "ETL, event-driven automation, and an integration layer." },
+                { t: "Operational efficiency", d: "Direct impact on cost, quality, and delivery time." },
               ].map((x) => (
                 <div key={x.t} className="card">
                   <h3 className="h3">{x.t}</h3>
@@ -147,35 +115,27 @@ export default function Home() {
 
         <section id="process" className="section">
           <div className="sectionInner">
-            <p className="eyebrow">{isEn ? "HOW WE WORK" : "NASIL ÇALIŞIYORUZ"}</p>
+            <p className="eyebrow">HOW WE WORK</p>
             <h2 className="h2">
-              {isEn ? "Fast, transparent and measurable" : "Hızlı, şeffaf ve ölçülebilir süreç"}
+              Fast, transparent and measurable
             </h2>
             <div className="steps">
               {[
                 {
-                  s: isEn ? "Discover" : "Keşfet",
-                  d: isEn
-                    ? "We clarify goals, data sources, and risks."
-                    : "Hedefleri, veri kaynaklarını ve riskleri netleştiririz.",
+                  s: "Discover",
+                  d: "We clarify goals, data sources, and risks.",
                 },
                 {
-                  s: isEn ? "Design" : "Tasarla",
-                  d: isEn
-                    ? "We shape the architecture, security, and agent strategy."
-                    : "Mimari, güvenlik ve agent stratejisini kurgularız.",
+                  s: "Design",
+                  d: "We shape the architecture, security, and agent strategy.",
                 },
                 {
-                  s: isEn ? "Build" : "Geliştir",
-                  d: isEn
-                    ? "MVP → pilot → production with fast iteration and measurement."
-                    : "MVP → pilot → üretim; hızlı iterasyon ve ölçüm.",
+                  s: "Build",
+                  d: "MVP → pilot → production with fast iteration and measurement.",
                 },
                 {
-                  s: isEn ? "Scale" : "Ölçekle",
-                  d: isEn
-                    ? "We grow performance, scope, and cost efficiency in a controlled way."
-                    : "Performans, maliyet ve kapsamı kontrollü büyütürüz.",
+                  s: "Scale",
+                  d: "We grow performance, scope, and cost efficiency in a controlled way.",
                 },
               ].map((x, idx) => (
                 <div key={x.s} className="card">
@@ -192,35 +152,27 @@ export default function Home() {
 
         <section id="why" className="section">
           <div className="sectionInner">
-            <p className="eyebrow">{isEn ? "WHY 4WISE" : "NEDEN 4WISE"}</p>
+            <p className="eyebrow">WHY 4WISE</p>
             <h2 className="h2">
-              {isEn ? "AI‑first team with enterprise trust" : "Kurumsal güven veren, AI-first ekip"}
+              AI‑first team with enterprise trust
             </h2>
             <div className="grid2">
               {[
                 {
-                  t: isEn ? "AI‑first approach" : "AI-first yaklaşım",
-                  d: isEn
-                    ? "Development centered on agents, evals, guardrails and telemetry."
-                    : "Agent, eval, guardrail ve telemetry odaklı geliştirme.",
+                  t: "AI‑first approach",
+                  d: "Development centered on agents, evals, guardrails and telemetry.",
                 },
                 {
-                  t: isEn ? "Scalable architecture" : "Ölçeklenebilir mimari",
-                  d: isEn
-                    ? "Modular services, observability and performance planning."
-                    : "Modüler servisler, gözlemlenebilirlik, performans planı.",
+                  t: "Scalable architecture",
+                  d: "Modular services, observability and performance planning.",
                 },
                 {
-                  t: isEn ? "Fast and flexible delivery" : "Hızlı ve esnek geliştirme",
-                  d: isEn
-                    ? "Iteration based on priorities; visible output week by week."
-                    : "Önceliklere göre iterasyon; çıktıyı haftalık görünür kılma.",
+                  t: "Fast and flexible delivery",
+                  d: "Iteration based on priorities; visible output week by week.",
                 },
                 {
-                  t: isEn ? "Enterprise‑grade security" : "Kurumsal güvenlik standartları",
-                  d: isEn
-                    ? "Access control, audit, data isolation and security practices."
-                    : "Erişim, audit, veri izolasyonu ve güvenlik pratikleri.",
+                  t: "Enterprise‑grade security",
+                  d: "Access control, audit, data isolation and security practices.",
                 },
               ].map((x) => (
                 <div key={x.t} className="card">
@@ -234,35 +186,29 @@ export default function Home() {
 
         <section id="cases" className="section">
           <div className="sectionInner">
-            <p className="eyebrow">{isEn ? "CASE STUDIES" : "PROJE ÖRNEKLERİ"}</p>
+            <p className="eyebrow">CASE STUDIES</p>
             <h2 className="h2">
-              {isEn ? "Experience across industries" : "Sektörler arası uygulama deneyimi"}
+              Experience across industries
             </h2>
             <div className="grid3">
               {[
                 {
-                  t: isEn ? "Healthtech" : "Sağlık teknolojileri",
-                  tag: isEn ? "Sample case" : "Örnek çalışma",
-                  d: isEn
-                    ? "Automation and decision support in appointment/triage flows. Delivered with security, observability and integrations."
-                    : "Randevu/triage süreçlerinde otomasyon ve karar destek. Güvenlik, izlenebilirlik ve entegrasyon odaklı teslim.",
-                  cta: isEn ? "Request details" : "Detay iste",
+                  t: "Healthtech",
+                  tag: "Sample case",
+                  d: "Automation and decision support in appointment/triage flows. Delivered with security, observability and integrations.",
+                  cta: "Request details",
                 },
                 {
-                  t: isEn ? "AI automation systems" : "AI otomasyon sistemleri",
-                  tag: isEn ? "Sample case" : "Örnek çalışma",
-                  d: isEn
-                    ? "Department‑level agents accelerating workflows. Permission model, audit trail and observability for production use."
-                    : "Departman bazlı agent’lar ile iş akışlarını hızlandırma. Yetki modeli, audit trail ve gözlemlenebilirlik ile production kullanımı.",
-                  cta: isEn ? "Request details" : "Detay iste",
+                  t: "AI automation systems",
+                  tag: "Sample case",
+                  d: "Department‑level agents accelerating workflows. Permission model, audit trail and observability for production use.",
+                  cta: "Request details",
                 },
                 {
-                  t: isEn ? "SaaS platforms" : "SaaS platformlar",
-                  tag: isEn ? "Sample case" : "Örnek çalışma",
-                  d: isEn
-                    ? "Multi‑tenant architecture, integration layer and analytics. Performance/cost optimization and sustainable delivery."
-                    : "Çok kiracılı mimari, entegrasyon katmanı ve analitik. Performans/maliyet optimizasyonu ve sürdürülebilir geliştirme süreci.",
-                  cta: isEn ? "Request details" : "Detay iste",
+                  t: "SaaS platforms",
+                  tag: "Sample case",
+                  d: "Multi‑tenant architecture, integration layer and analytics. Performance/cost optimization and sustainable delivery.",
+                  cta: "Request details",
                 },
               ].map((x) => (
                 <div key={x.t} className="card">
@@ -282,22 +228,20 @@ export default function Home() {
           <div className="sectionInner">
             <div className="ctaCard">
               <div>
-            <p className="eyebrow">{isEn ? "NEXT STEP" : "BİR SONRAKİ ADIM"}</p>
+            <p className="eyebrow">NEXT STEP</p>
             <h2 className="h2">
-              {isEn ? "Let’s transform your business with intelligent systems" : "İşinizi akıllı sistemlerle dönüştürelim"}
+              Let’s transform your business with intelligent systems
             </h2>
             <p className="lead">
-              {isEn
-                ? "Let’s schedule a 30‑minute discovery call."
-                : "30 dakikalık keşif görüşmesi planlayalım."}
+              Let’s schedule a 30‑minute discovery call.
             </p>
               </div>
               <div className="ctaActions">
                 <a className="btnSecondary" href="mailto:hello@4wise.ai?subject=%C4%B0leti%C5%9Fim">
-                  {isEn ? "Get in touch" : "İletişime Geç"}
+                  Get in touch
                 </a>
                 <a className="btnPrimary" href="mailto:hello@4wise.ai?subject=Demo%20Talebi">
-                  {isEn ? "Request a demo" : "Demo Talep Et"}
+                  Request a demo
                 </a>
               </div>
             </div>
@@ -307,46 +251,40 @@ export default function Home() {
                 <div>
                   <Image src="/4wise-logo-white.png" alt="4wise" width={120} height={34} className="logoMark" />
                   <p className="muted">
-                    {isEn
-                      ? "4wise is a technology company building AI‑driven systems, AI agents, and scalable software solutions."
-                      : "4wise, yapay zeka tabanlı sistemler geliştiren, AI agent’lar oluşturan ve ölçeklenebilir yazılım çözümleri sunan bir teknoloji şirketidir."}
+                    4wise is a technology company building AI‑driven systems, AI agents, and scalable software solutions.
                   </p>
+                  <div className="companyBlock">
+                    <p className="footerTitle">COMPANY</p>
+                    <p className="muted companyLine"><strong>4wise Tech OÜ</strong></p>
+                    <p className="muted companyLine">
+                      Harju maakond, Tallinn, Kesklinna linnaosa, Veskiposti tn 2-1002, 10138, Estonia
+                    </p>
+                    <p className="muted companyLine">Registry No: 17445723</p>
+                  </div>
                 </div>
                 <div className="footerCols">
                   <div>
-                    <p className="footerTitle">{isEn ? "SERVICES" : "HİZMETLER"}</p>
-                    <p className="muted">
-                      {isEn ? "AI Agents & Automation" : "AI Agent & Otomasyon"}
-                    </p>
-                    <p className="muted">
-                      {isEn ? "Software Engineering" : "Yazılım Geliştirme"}
-                    </p>
-                    <p className="muted">
-                      {isEn ? "Run & Support" : "Bakım & Destek"}
-                    </p>
+                    <p className="footerTitle">SERVICES</p>
+                    <p className="muted">AI Agents &amp; Automation</p>
+                    <p className="muted">Software Engineering</p>
+                    <p className="muted">Run &amp; Support</p>
                   </div>
                   <div>
-                    <p className="footerTitle">{isEn ? "CONTACT" : "İLETİŞİM"}</p>
+                    <p className="footerTitle">CONTACT</p>
                     <p className="muted">hello@4wise.ai</p>
-                    <p className="muted">
-                      {isEn ? "Istanbul / Remote" : "İstanbul / Remote"}
-                    </p>
+                    <p className="muted">Istanbul / Remote</p>
                   </div>
                   <div>
-                    <p className="footerTitle">{isEn ? "LEGAL" : "YASAL"}</p>
-                    <p className="muted">
-                      {isEn ? "Privacy" : "Gizlilik"}
-                    </p>
-                    <p className="muted">KVKK</p>
-                    <p className="muted">
-                      {isEn ? "Cookie Policy" : "Çerez Politikası"}
-                    </p>
+                    <p className="footerTitle">LEGAL</p>
+                    <Link className="muted footerLink" href="/privacy">Privacy Policy</Link>
+                    <Link className="muted footerLink" href="/cookies">Cookie Policy</Link>
+                    <Link className="muted footerLink" href="/terms">Terms of Service</Link>
                   </div>
                 </div>
               </div>
               <p className="mutedSmall">
                 © {new Date().getFullYear()} 4wise.{" "}
-                {isEn ? "All rights reserved." : "Tüm hakları saklıdır."}
+                All rights reserved.
               </p>
             </footer>
           </div>

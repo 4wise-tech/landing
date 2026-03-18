@@ -88,6 +88,56 @@ html {
 .navLink:hover {
   color: rgba(248,250,252,0.98);
 }
+.navMenu {
+  display: none; /* shown only on mobile */
+}
+.navMenuButton {
+  list-style: none;
+  user-select: none;
+  cursor: pointer;
+  height: 38px;
+  width: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: rgba(248,250,252,0.92);
+  font-size: 18px;
+  font-weight: 900;
+}
+.navMenuPanel {
+  position: absolute;
+  right: 14px;
+  top: 62px;
+  width: min(220px, calc(100vw - 56px));
+  padding: 10px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(2,6,23,0.92);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 28px 90px rgba(0,0,0,0.55);
+  display: grid;
+  gap: 6px;
+  z-index: 60;
+}
+.navMenuItem {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding-inline: 12px;
+  border-radius: 14px;
+  color: rgba(226,232,240,0.88);
+  font-weight: 700;
+  font-size: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.navMenuItem:hover {
+  background: rgba(255,255,255,0.07);
+  color: rgba(248,250,252,0.98);
+}
 .logoMark {
   border-radius: 10px;
   /* current "white" PNG is actually dark; make it readable on dark UI */
@@ -104,7 +154,16 @@ html {
     display: none;
   }
   .navPill {
+    position: relative;
     justify-content: center;
+  }
+  .navMenu {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 60;
   }
   .logoMark {
     height: 24px;
@@ -284,7 +343,7 @@ html {
 .section {
   position: relative;
   z-index: 1;
-  padding: 96px 0;
+  padding: 72px 0;
 }
 .sectionInner {
   width: min(1180px, calc(100% - 48px));
@@ -299,6 +358,12 @@ html {
   width: min(1180px, calc(100% - 48px));
   height: 1px;
   background: rgba(255,255,255,0.08);
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding: 56px 0;
+  }
 }
 .section::after {
   content: "";
@@ -506,7 +571,11 @@ html {
 }
 @media (min-width: 720px) {
   .ctaCard { flex-direction: row; align-items: center; justify-content: space-between; }
-  .ctaActions { flex-direction: row; }
+  .ctaActions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
 }
 .footer {
   margin-top: 38px;
@@ -518,7 +587,7 @@ html {
   gap: 22px;
 }
 @media (min-width: 900px) {
-  .footerTop { grid-template-columns: 1.2fr 1fr; align-items: start; }
+  .footerTop { grid-template-columns: 1.35fr 1fr; align-items: start; }
 }
 .footerCols {
   display: grid;
@@ -533,6 +602,80 @@ html {
   letter-spacing: 1.1px;
   color: rgba(248,250,252,0.90);
   margin-bottom: 10px;
+}
+.footerLink {
+  display: block;
+  margin-top: 8px;
+  text-decoration: none;
+}
+.footerLink:hover {
+  color: rgba(248,250,252,0.98);
+}
+
+.companyBlock {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+.companyBlock .companyLine {
+  margin-top: 6px;
+}
+.companyBlock .companyLine:first-of-type {
+  margin-top: 8px;
+}
+.companyBlock strong {
+  color: rgba(248,250,252,0.94);
+}
+
+/* Legal pages */
+.legalShell {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding-top: 104px; /* nav pill offset */
+  padding-bottom: 84px;
+}
+.legalInner {
+  width: min(980px, calc(100% - 48px));
+  margin-inline: auto;
+}
+.legalH1 {
+  font-size: 40px;
+  line-height: 44px;
+  font-weight: 950;
+  letter-spacing: -0.8px;
+  color: rgba(248,250,252,0.98);
+}
+.legalH2 {
+  margin-top: 18px;
+  font-size: 16px;
+  font-weight: 900;
+  color: rgba(248,250,252,0.94);
+}
+.legalCard {
+  margin-top: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  padding: 18px;
+  box-shadow: 0 26px 90px rgba(0,0,0,0.55);
+}
+.legalList {
+  margin-top: 10px;
+  padding-left: 18px;
+  color: rgba(226,232,240,0.74);
+  font-size: 14px;
+  line-height: 22px;
+  display: grid;
+  gap: 8px;
+}
+.legalLink {
+  color: rgba(165,243,252,0.92);
+  text-decoration: none;
+  font-weight: 800;
+}
+.legalLink:hover {
+  color: rgba(248,250,252,0.98);
 }
 
 /* crisp focus */

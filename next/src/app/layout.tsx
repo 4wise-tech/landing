@@ -13,14 +13,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "4wise • AI Agent & Kurumsal Yazılım",
+  title: "4wise • AI Agents & Enterprise Software",
   description:
-    "4wise, AI agent’lar, ölçeklenebilir yazılımlar ve kurumsal yapay zeka çözümleri geliştirir. Bakım, destek ve sürekli geliştirme ile production odaklı teslim.",
+    "4wise builds AI agents, scalable software, and enterprise AI solutions. From discovery to production, end-to-end delivery with run & support.",
   metadataBase: new URL("https://4wise.ai"),
   openGraph: {
-    title: "4wise • AI Agent & Kurumsal Yazılım",
+    title: "4wise • AI Agents & Enterprise Software",
     description:
-      "AI agent’lar, ölçeklenebilir yazılımlar ve kurumsal çözümler. Production odaklı uçtan uca teslim.",
+      "AI agents, scalable software, and enterprise AI solutions. End-to-end delivery from discovery to production.",
     type: "website",
   },
   robots: {
@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

@@ -5,9 +5,7 @@ import { useMemo } from "react";
 
 const Hyperspeed = dynamic(() => import("@/components/hyperspeed/Hyperspeed"), { ssr: false });
 
-export type Lang = "en" | "tr";
-
-export function Hero({ lang }: { lang: Lang }) {
+export function Hero() {
   const hyperspeedOptions = useMemo(
     () => ({
       distortion: "turbulentDistortion",
@@ -60,32 +58,23 @@ export function Hero({ lang }: { lang: Lang }) {
           <div className="heroInner">
             <div className="heroBadge">
               <span className="heroDot" aria-hidden />
-              <span>
-                {lang === "en"
-                  ? "Click & hold to see the real magic"
-                  : "Basılı tut, gerçek sihri gör"}
-              </span>
+              <span>Click &amp; hold to see the real magic</span>
             </div>
 
             <h1 className="heroTitle">
-              {lang === "en" ? "We build the intelligent systems of " : "Geleceğin akıllı sistemlerini "}
-              <span className="heroGradient">
-                {lang === "en" ? "tomorrow" : "inşa ediyoruz"}
-              </span>
+              We build the intelligent systems of <span className="heroGradient">tomorrow</span>
             </h1>
 
             <p className="heroSubtitle">
-              {lang === "en"
-                ? "AI agents, scalable software, and enterprise AI solutions. From discovery to production, end‑to‑end delivery."
-                : "AI Agent’lar, ölçeklenebilir yazılımlar ve kurumsal çözümler. Keşiften üretime kadar uçtan uca teslim."}
+              AI agents, scalable software, and enterprise AI solutions. From discovery to production, end‑to‑end delivery.
             </p>
 
             <div className="heroActions">
               <a className="btnPrimary" href="mailto:hello@4wise.ai?subject=Demo%20Talebi">
-                {lang === "en" ? "Request a demo" : "Demo Talep Et"}
+                Request a demo
               </a>
               <a className="btnSecondary" href="#next">
-                {lang === "en" ? "Explore solutions" : "Çözümleri Keşfet"}
+                Explore solutions
               </a>
             </div>
           </div>
